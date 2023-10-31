@@ -1,35 +1,73 @@
-# BIOF501A Term Project: Taxonomic Classification and Visualization of Short-Read Metagenomic Sequencing Data
+# Nextflow workflow: Taxonomic Classification and Visualization of Short-Read Metagenomic Sequencing Data
+### By: Amos Fong - Scott Lab
+
+***
 
 ## Background and Rationale
 
-## Usage
+## SOP
+### Dependencies
+To run this workflow, the user must have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) installed. Additionally, this workflow depends on the following packages:
 ```
-# download repository
+bowtie2=2.5.2
+bracken=2.9
+fastp=0.23.4
+fastqc=0.12.1
+kraken2=2.1.3
+krakentools=1.2
+krona=2.8.1
+nextflow=23.10.0
+```
+### Installation
+Step 1: Deactivate conda environment
+```
+conda deactivate
+```
+Step 2: Clone repository
+```
 git clone https://github.com/AmosFong1/BIOF501A
-
-# create conda environment from environment.yml
+```
+Step 3: Navigate to project directory
+```
+cd BIOF501A
+```
+Step 4: Create conda environment
+```
 conda env create -f environment.yml
-
-# download KrakenTools
+```
+Step 5: Clone KrakenTools repository
+```
 git clone https://github.com/jenniferlu717/KrakenTools
-
-# remove faulty sym link from krona install
+```
+Step 6: Remove faulty sym link
+```
 rm -rf "$(pwd)"/.conda/envs/BIOF501A/opt/krona/taxonomy
-
-# make directory to store krona database
+```
+Step 7: Create directory to store new krona database
+```
 mkdir -p "$(pwd)"/krona/taxonomy
-
-# create sym link to krona database
+```
+Step 8: Create sym link to new krona database
+```
 ln -s "$(pwd)"/krona/taxonomy "$(pwd)"/.conda/envs/BIOF501A/opt/krona/taxonomy
-
-# download krona database
+```
+Step 9: Download new krona database
+```
 wget -pO "$(pwd)"/krona/taxonomy/taxdump.tar.gz https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
-
-# run ktUpdateTaxonomy script
+```
+Step 10: Run `ktUpdateTaxonomy.sh` script
+```
 ktUpdateTaxonomy.sh --only-build
-
-# run nextflow script
+```
+### Usage
+Step 1: Activate conda environment
+```
+conda activate BIOF501A
+```
+Step 2: Run the workflow (use `-resume` option as needed)
+```
 nextflow run BIOF501A.nf
+nextflow run BIOF501A.nf -resume
 ```
 
 ## Input
