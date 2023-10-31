@@ -1,6 +1,6 @@
 # BIOF501A
 
-## Environment Setup
+## Usage
 ```
 # download repository
 git clone https://github.com/AmosFong1/BIOF501A
