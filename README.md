@@ -1,5 +1,5 @@
 # Taxonomic Classification and Visualization of Short-Read Metagenomic Sequencing Data
-### By: Amos Fong - Scott Lab
+### By: Amos Fong
 
 ***
 
