@@ -5,6 +5,8 @@
 
 ## Background and Rationale
 
+The workflow starts by downloading and unpacking the Bowtie2 database of the human host genome GRCh38 (hg38), and the Kraken 2 / Bracken RefSeq indexes (Standard-8 collection). Next, the workflow loads in raw metagenomic sequencing data (FASTQ) from the NCBI sequence read archive (SRA). For the purposes of modelling this workflow, we will be analyzing sequencing results from a urban sewage sample collected in Vancouver, BC. Next, the workflow uses FASTP to perform read pre-processing. FASTP is a tool designed to provide a fast all-in-one preprocessing step for FastQ files. Next, the workflow uses FASTQC generate read quality reports, which provides a summary of the read quality after FASTP pre-processing. In parallel, the FASTP pre-processed reads are decontaminated from reads mapping to the hg38 genome using Bowtie2. Next, the workflow uses Kraken2 to assign taxonomic labels to the metagenomics sequencing reads. Next, the workflow uses Bracken to estimate the taxonomic abundances at the Species level using the Kraken2 assigned classes. Next, workflow uses the the python script `kreport2krona.py` from KrakenTools to convert the Kraken/Bracken report into a Krona-compatible text file. Finally, the workflow uses Krona to generate an HTML file which provides an interactive metagenomic visualization of the estimated taxonomical abundances. 
+
 ## SOP
 ### Dependencies
 To run this workflow, the user must have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) installed. Additionally, this workflow depends on the following packages:
