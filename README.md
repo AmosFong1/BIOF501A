@@ -33,7 +33,7 @@ Step 1: Deactivate conda environment
 ```
 conda deactivate
 ```
-Step 2: Navigate to home
+Step 2: Navigate to home directory
 ```
 cd ~
 ```
@@ -57,7 +57,7 @@ Step 7: Clone KrakenTools repository
 ```
 git clone https://github.com/jenniferlu717/KrakenTools
 ```
-Step 8: Remove faulty sym link
+Step 8: Remove sym link
 ```
 rm -rf ~/.conda/envs/BIOF501A/opt/krona/taxonomy
 ```
