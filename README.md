@@ -33,39 +33,47 @@ Step 1: Deactivate conda environment
 ```
 conda deactivate
 ```
-Step 2: Clone repository
+Step 2: Navigate to home
+```
+cd ~
+```
+Step 3: Clone repository
 ```
 git clone https://github.com/AmosFong1/BIOF501A
 ```
-Step 3: Navigate to project directory
+Step 4: Navigate to project directory
 ```
 cd BIOF501A
 ```
-Step 4: Create conda environment
+Step 5: Create conda environment
 ```
 conda env create -f environment.yml
 ```
-Step 5: Clone KrakenTools repository
+Step 6: Activate conda environment
+```
+conda activate BIOF501A
+```
+Step 7: Clone KrakenTools repository
 ```
 git clone https://github.com/jenniferlu717/KrakenTools
 ```
-Step 6: Remove faulty sym link
+Step 8: Remove faulty sym link
 ```
-rm -rf "$(pwd)"/.conda/envs/BIOF501A/opt/krona/taxonomy
+rm -rf ~/.conda/envs/BIOF501A/opt/krona/taxonomy
 ```
-Step 7: Create directory to store new krona database
+Step 9: Create directory to store new krona database
 ```
-mkdir -p "$(pwd)"/krona/taxonomy
+mkdir -p krona/taxonomy
 ```
-Step 8: Create sym link to new krona database
+Step 10: Create sym link to new krona database
 ```
-ln -s "$(pwd)"/krona/taxonomy "$(pwd)"/.conda/envs/BIOF501A/opt/krona/taxonomy
+ln -s ~/BIOF501A/krona/taxonomy ~/.conda/envs/BIOF501A/opt/krona/taxonomy
 ```
-Step 9: Download new krona database
+Step 11: Download new krona database
 ```
-wget -pO "$(pwd)"/krona/taxonomy/taxdump.tar.gz https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
+wget -pO krona/taxonomy/taxdump.tar.gz https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
 ```
-Step 10: Run `ktUpdateTaxonomy.sh` script
+Step 12: Run `ktUpdateTaxonomy.sh` script
 ```
 ktUpdateTaxonomy.sh --only-build
 ```
