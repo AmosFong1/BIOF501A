@@ -13,7 +13,7 @@ Here, we present a bioinformatics workflow that performs end-to-end quality cont
 
 This workflow begins by downloading and unpacking the [Bowtie2 database](https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip) of the human host genome GRCh38 (hg38) and the [Kraken 2 / Bracken RefSeq indexes](https://genome-idx.s3.amazonaws.com/kraken/k2_standard_08gb_20231009.tar.gz) (Standard-8 collection). Next, the workflow loads in raw metagenomic sequencing data in FASTQ format from the NCBI SRA. For the purposes of modelling this workflow, we will be analyzing sequencing results from a urban sewage sample collected in Vancouver, BC. Subsequently, the workflow utilizes [FASTP](https://github.com/OpenGene/fastp) to perform read pre-processing [[9]](#9). FASTP is a tool designed to provide a fast all-in-one preprocessing step for FASTQ files. The workflow then uses [FASTQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to generate read quality reports, providing a summary of the FASTQ read quality after FASTP pre-processing. In parallel, [Bowtie2](https://github.com/BenLangmead/bowtie2) is used to remove reads mapping to the hg38 genome found in the FASTP pre-processed reads [[10]](#10). Following these steps, the workflow uses [Kraken2](https://github.com/DerrickWood/kraken2) to assign taxonomic labels to the Bowtie2-filtered, FASTP pre-processed reads[[6]](#6). Subsequently, [Braken](https://github.com/jenniferlu717/Bracken) is used to estimate the taxonomic abundances at the species level using the Kraken2-assigned taxonomy classes[[5]](#5). The workflow then uses the the python script `kreport2krona.py` from [KrakenTools](https://github.com/jenniferlu717/KrakenTools) to convert the Kraken2/Bracken report into a Krona-compatible text file [[11]](#11). Finally, the workflow uses [Krona](https://github.com/marbl/Krona/wiki) to generate a HTML file which provides an interactive visualization of the estimated taxonomical abundances [[8]](#8).
 
-![workflow](dag.svg)
+![workflow](README/dag.svg)
 
 ## SOP
 ### Dependencies
@@ -93,7 +93,7 @@ The workflow inputs include raw metagenomic sequencing data (FASTQ) from a globa
 ## Output
 The workflow's main output is the `krona.html` file, which can be found in the `data/krona` directory. This file provides an interactive metagenomic visualization of estimated taxonomical abundances that can be downloaded and explored with any web browser. The other outputs include the the `fastp_ERR2683153_1_fastqc.html` and `fastp_ERR2683153_2_fastqc.html` files, which can be found in the `data/fastqc` directory. These files provide a QC report of the FASTP-processed reads, which can be downloaded and explored with any web browser.
 
-![output](krona.svg)
+![output](README/krona.svg)
 
 ## References
 <a id="1">[1]</a>
