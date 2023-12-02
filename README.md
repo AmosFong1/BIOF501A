@@ -95,6 +95,8 @@ The workflow's main output is the `krona.html` file, which can be found in the `
 
 ![output](README/krona.svg)
 
+Here we observe that our sample consists primarily of predicted bacterial-associated sequences, with only 3%, 0.2%, and 0.1% of sequences predicted as viruses, Homo sapiens (after Bowtie2 host decontamination), and archaea-associated sequences, respectively. Among the bacterial-associated sequences, more than 14,000 species have been captured, providing a high-resolution framework for monitoring the population dynamics of specific species. However, Kraken2 failed to assign taxonomic classifications to 65.11% of sequences, as indicated in the `data/kraken2/k2_report.txt` file. This is likely due to the pipelines use of the 8GB-capped standard-8 collection for its Kraken2/Bracken RefSeq index. Choosing a more comprehensive [alternative index]( https://benlangmead.github.io/aws-indexes/k2) from their offerings or assembling a customized index from scratch has the potential to improve the sensitivity of Kraken2 classification. Other possible explanations for these unclassified Kraken2 sequences include the potential that these reads have not yet undergone characterization within the existing RefSeq databases. Another possibility is that these sequences may originate from taxonomic kingdoms not captured by the standard-8 collection of the Kraken2/Bracken indexes.
+
 ## References
 <a id="1">[1]</a>
 Munk P, Brinch C, Møller FD, et al. Genomic analysis of sewage from 101 countries reveals global landscape of antimicrobial resistance. Nat Commun. 2022;13(1):7251. 
