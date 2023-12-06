@@ -34,8 +34,6 @@ nextflow=23.10.0
 This workflow uses the following containers:
 - fastp(`nanozoo/fastp:latest`)
 - FastQC(`staphb/fastqc:latest`)
-- Kraken2(`staphb/kraken2:latest`)
-- Bracken(`nanozoo/bracken:latest`)
 - Krona(`nanozoo/krona:latest`)
 
 ### Installation
