@@ -23,11 +23,8 @@ This workflow installs the following packages:
 ```
 bowtie2=2.5.2
 bracken=2.9
-fastp=0.23.4
-fastqc=0.12.1
 kraken2=2.1.3
 krakentools=1.2
-krona=2.8.1
 nextflow=23.10.0
 ```
 
@@ -65,26 +62,7 @@ Step 7: Clone KrakenTools repository
 ```
 git clone https://github.com/jenniferlu717/KrakenTools
 ```
-Step 8: Remove sym link
-```
-rm -rf ~/.conda/envs/BIOF501A/opt/krona/taxonomy
-```
-Step 9: Create directory to store new krona database
-```
-mkdir -p krona/taxonomy
-```
-Step 10: Create sym link to new krona database
-```
-ln -s ~/BIOF501A/krona/taxonomy ~/.conda/envs/BIOF501A/opt/krona/taxonomy
-```
-Step 11: Download new krona database
-```
-wget -pO krona/taxonomy/taxdump.tar.gz https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
-```
-Step 12: Run `ktUpdateTaxonomy.sh` script
-```
-ktUpdateTaxonomy.sh --only-build
-```
+
 ### Usage
 Step 1: Activate conda environment
 ```
