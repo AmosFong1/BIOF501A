@@ -17,7 +17,7 @@ This workflow begins by downloading and unpacking the [Bowtie2 database](https:/
 
 ## SOP
 ### Dependencies
-To run this workflow, the user must have [docker](https://docs.docker.com/engine/install/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) installed. 
+To run this workflow, the user must have [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html), [docker](https://docs.docker.com/engine/install/), and [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed. 
 
 This workflow installs the following packages:
 ```
